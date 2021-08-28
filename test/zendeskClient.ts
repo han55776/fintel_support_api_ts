@@ -6,9 +6,9 @@ import Client from "../src/Client";
 // }).createClient();
 
 const zdClient = Client.createClient({
-  username: "fintel-connect@cctech.io",
-  password: "Han2481211!",
-  remoteUri: "https://fintelconnect.zendesk.com/api/v2/",
+  username: "",
+  password: "",
+  remoteUri: "",
 });
 
 export { zdClient };
