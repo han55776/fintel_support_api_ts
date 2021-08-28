@@ -6,12 +6,18 @@ class Comment extends Model {
     super(input);
   }
 
-  async getById(ticketID: Number) {
-    return await this.request("GET", ["tickets"]);
+  async getComments(ticketID: Number) {
+    return await this.request("GET", [
+      "tickets",
+      ticketID.toString(),
+      "comments",
+    ]);
   }
 
-  async createOne(comment: object) {
-    return await this.request("POST", ["tickets"], comment);
+  async create(ticketID: Number, comment: object) {
+    return await this.request("PUT", ["tickets", ticketID.toString()], {
+      ticket: comment,
+    });
   }
 }
 

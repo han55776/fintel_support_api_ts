@@ -6,23 +6,35 @@ class User extends Model {
     super(input);
   }
 
-  async get() {
+  async list() {
     return await this.request("GET", ["users"]);
   }
 
-  async getOneById(userID: Number) {
+  async show(userID: Number) {
     return await this.request("GET", ["users", userID.toString()]);
   }
 
-  async createOne(user: object) {
+  async create(user: object) {
     return await this.request("POST", ["users"], user);
   }
 
-  async updateOneById(userID: Number, user: object) {
+  async update(userID: Number, user: object) {
     return await this.request("PUT", ["users", userID.toString()], user);
   }
 
-  async deleteOneById(userID: Number) {
+  async suspend(userID: Number) {
+    return await this.request("PUT", ["users", userID.toString()], {
+      user: { suspended: true },
+    });
+  }
+
+  async unsuspend(userID: Number) {
+    return await this.request("PUT", ["users", userID.toString()], {
+      user: { suspended: false },
+    });
+  }
+
+  async delete(userID: Number) {
     return await this.request("DELETE", ["users", userID.toString()]);
   }
 }

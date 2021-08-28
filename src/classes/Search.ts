@@ -6,8 +6,11 @@ class Search extends Model {
     super(input);
   }
 
-  async query() {
-    return await this.request("GET", ["tickets"]);
+  async query(searchTerm: string) {
+    return await this.request("GET", [
+      "search",
+      JSON.stringify({ query: searchTerm }),
+    ]);
   }
 }
 

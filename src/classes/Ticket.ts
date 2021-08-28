@@ -6,23 +6,23 @@ class Ticket extends Model {
     super(input);
   }
 
-  async get() {
+  async list() {
     return await this.request("GET", ["tickets"]);
   }
 
-  async getOneById(ticketID: Number) {
+  async show(ticketID: Number) {
     return await this.request("GET", ["tickets", ticketID.toString()]);
   }
 
-  async createOne(ticket: object) {
+  async create(ticket: object) {
     return await this.request("POST", ["tickets"], ticket);
   }
 
-  async updateOneById(ticketID: Number, ticket: object) {
+  async update(ticketID: Number, ticket: object) {
     return await this.request("PUT", ["tickets", ticketID.toString()], ticket);
   }
 
-  async deleteOneById(ticketID: Number, ticket: object) {
+  async delete(ticketID: Number, ticket: object) {
     return await this.request(
       "DELETE",
       ["tickets", ticketID.toString()],
