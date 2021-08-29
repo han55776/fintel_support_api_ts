@@ -14,7 +14,7 @@ const showOrganization = async () => {
   const data = await zdClient.organization.show(370444594694);
 
   if (data.error) {
-    console.log(data.details.base);
+    //console.log(data.details.base);
   } else {
     console.log(data);
   }
