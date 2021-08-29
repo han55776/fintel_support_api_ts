@@ -1,12 +1,12 @@
 {
   "name": "@nautilusdigital/zendesk",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "Client.js",
   "scripts": {
     "clean": "del ./build/*",
-    "build": "npm run clean && tsc",
-    "pub": "npm version patch && npm run build && npm publish"
+    "build": "tsc",
+    "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
   },
   "keywords": [],
   "author": "",
