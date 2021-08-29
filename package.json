@@ -2,8 +2,8 @@
   "name": "@nautilusdigital/zendesk",
   "version": "1.0.5",
   "description": "",
-  "main": "./build/index.js",
-  "types": "./build/index.d.ts",
+  "main": "./build/Client.js",
+  "types": "./build/Client.d.ts",
   "files": [
     "build/**/*"
   ],
