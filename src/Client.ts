@@ -1,10 +1,10 @@
-import Ticket from "./classes/Ticket";
-import User from "./classes/User";
-import Comment from "./classes/Comment";
-import Membership from "./classes/Membership";
-import Organization from "./classes/Organization";
-import Search from "./classes/Search";
-import { initializeParams } from "./classes/Interface";
+import Ticket from './subclasses/Ticket';
+import User from './subclasses/User';
+import Comment from './subclasses/Comment';
+import Membership from './subclasses/Membership';
+import Organization from './subclasses/Organization';
+import Search from './subclasses/Search';
+import { initializeParams } from './subclasses/Interface';
 
 class Client {
   public ticket!: Ticket;

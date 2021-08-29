@@ -1,45 +1,80 @@
-import { zdClient } from "./ZendeskClient";
+import { zdClient } from './zendeskClient';
 
-const listTickets = async () => {
-  const data = await zdClient.user.list();
+const listUsers = async () => {
+  const data = await zdClient.user.list(1, 5);
 
-  console.log(data);
+  if (data.error) {
+    console.log(data.details.base);
+  } else {
+    console.log(data);
+  }
 };
 
-const showTicket = async () => {
-  const data = await zdClient.user.show(417249709533);
+const showUser = async () => {
+  const data = await zdClient.user.show(1517034726362);
 
-  console.log(data);
+  if (data.error) {
+    console.log(data.details.base);
+  } else {
+    console.log(data);
+  }
 };
 
-const createTicket = async () => {
+// admin, agent, end-user
+const createUser = async () => {
   const data = await zdClient.user.create({
     user: {
-      email: "g.han55776@naver.com",
-      name: "test_account_12",
-      role: "agent",
+      email: 'enduser2@naver.com',
+      name: 'test_account_enduser_2',
+      role: 'end-user',
     },
   });
 
-  console.log(data);
+  if (data.error) {
+    console.log(data.details.base);
+  } else {
+    console.log(data);
+  }
 };
 
-const updateTicket = async () => {
+const updateUser = async () => {
   const data = await zdClient.user.update(1517034726362, {
-    user: { email: "han5577@gmail.com", name: "test_account_1", role: "admin" },
+    user: { email: 'han5577@gmail.com', name: 'test_account_1', role: 'agent' },
   });
 
-  console.log(data);
+  if (data.error) {
+    console.log(data.details.base);
+  } else {
+    console.log(data);
+  }
 };
 
-const deleteTicket = async () => {
+const deleteUser = async () => {
   const data = await zdClient.user.delete(1517034726362);
 
-  console.log(data);
+  if (data.error) {
+    console.log(data.details.base);
+  } else {
+    console.log(data);
+  }
 };
 
-//listTickets();
-//showTicket();
-//updateTicket();
-createTicket();
-//deleteTicket();
+switch (process.argv[2]) {
+  case '-l':
+    listUsers();
+    break;
+  case '-s':
+    showUser();
+    break;
+  case '-u':
+    updateUser();
+    break;
+  case '-c':
+    createUser();
+    break;
+  case '-d':
+    deleteUser();
+    break;
+  default:
+    break;
+}
