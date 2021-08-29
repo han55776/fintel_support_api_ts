@@ -1,6 +1,6 @@
 {
   "name": "@nautilusdigital/zendesk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "Client.js",
   "types": "./build/Client.d.ts",
