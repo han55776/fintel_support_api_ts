@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "",
   "main": "Client.js",
+  "types": "./build/Client.d.ts",
   "scripts": {
     "clean": "del ./build/*",
     "build": "tsc",
