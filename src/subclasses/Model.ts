@@ -34,8 +34,6 @@ class Model {
 
     var response = await fetch(requestURL, options);
 
-    console.log(response);
-
     if (method !== "DELETE") {
       response = await response.json();
     }
