@@ -1,10 +1,10 @@
-import Ticket from './subclasses/Ticket';
-import User from './subclasses/User';
-import Comment from './subclasses/Comment';
-import Membership from './subclasses/Membership';
-import Organization from './subclasses/Organization';
-import Search from './subclasses/Search';
-import { initializeParams } from './subclasses/Interface';
+import Ticket from "./subclasses/Ticket";
+import User from "./subclasses/User";
+import Comment from "./subclasses/Comment";
+import Membership from "./subclasses/Membership";
+import Organization from "./subclasses/Organization";
+import Search from "./subclasses/Search";
+import { initializeParams } from "./subclasses/Interface";
 
 class Client {
   public ticket!: Ticket;
@@ -13,6 +13,7 @@ class Client {
   public membership!: Membership;
   public organization!: Organization;
   public search!: Search;
+  public static test: string;
 
   constructor(input: initializeParams) {
     this.ticket = new Ticket(input);
