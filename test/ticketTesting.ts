@@ -15,7 +15,7 @@ const showTicket = async () => {
 const createTicket = async () => {
   const data = await zdClient.ticket.create({
     ticket: {
-      requester_id: 1903217003925,
+      requester_id: 1517181452582,
       assignee_id: 1903155695985,
       subject: "urgent",
       comment: { body: "this is an urgent ticket" },
