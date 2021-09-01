@@ -1,6 +1,15 @@
 import fetch from "node-fetch";
 import { initializeParams } from "./Interface";
 
+interface UploadResponse {
+  upload: {
+    token: string;
+    expires_at?: string;
+    attachments?: [object];
+    attachment?: object;
+  };
+}
+
 class Model {
   private remoteUri!: string;
   private username!: string;
@@ -39,6 +48,25 @@ class Model {
     }
 
     return response;
+  }
+
+  async requestUpload(method: string, params: string[], fileData: Buffer) {
+    const requestURL = `${this.remoteUri + params.join("/")}`;
+
+    let options = {
+      method: "POST",
+      body: fileData,
+      headers: {
+        "Content-Type": "application/binary",
+        Authorization: this.authorization,
+      },
+    };
+
+    var response = await fetch(requestURL, options);
+
+    var payload: UploadResponse = await response.json();
+
+    return payload.upload.token;
   }
 }
 

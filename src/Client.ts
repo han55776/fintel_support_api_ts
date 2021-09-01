@@ -4,6 +4,7 @@ import Comment from "./subclasses/Comment";
 import Membership from "./subclasses/Membership";
 import Organization from "./subclasses/Organization";
 import Search from "./subclasses/Search";
+import Attachment from "./subclasses/Attachment";
 import { initializeParams } from "./subclasses/Interface";
 
 class Client {
@@ -13,7 +14,7 @@ class Client {
   public membership!: Membership;
   public organization!: Organization;
   public search!: Search;
-  public static test: string;
+  public attachment!: Attachment;
 
   constructor(input: initializeParams) {
     this.ticket = new Ticket(input);
@@ -22,6 +23,7 @@ class Client {
     this.membership = new Membership(input);
     this.organization = new Organization(input);
     this.search = new Search(input);
+    this.attachment = new Attachment(input);
   }
 
   static createClient(input: initializeParams): Client {
