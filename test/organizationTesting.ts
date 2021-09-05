@@ -1,23 +1,15 @@
-import { zdClient } from './zendeskClient';
+import { zdClient } from "./zendeskClient";
 
 const listOrganizations = async () => {
   const data = await zdClient.organization.list();
 
-  if (data.error) {
-    console.log(data.details.base);
-  } else {
-    console.log(data);
-  }
+  console.log(data);
 };
 
 const showOrganization = async () => {
   const data = await zdClient.organization.show(370444594694);
 
-  if (data.error) {
-    //console.log(data.details.base);
-  } else {
-    console.log(data);
-  }
+  console.log(data);
 };
 
 const createOrganization = async () => {
@@ -26,28 +18,20 @@ const createOrganization = async () => {
 
   const data = await zdClient.organization.create({
     organization: {
-      name: 'this is temporary organization',
+      name: "this is temporary organization",
       external_id: owner_id,
     },
   });
 
-  if (data.error) {
-    console.log(data.details.base);
-  } else {
-    console.log(data);
-  }
+  console.log(data);
 };
 
 const updateOrganization = async () => {
   const data = await zdClient.organization.update(1500516766761, {
-    organization: { details: 'test organization' },
+    organization: { details: "test organization" },
   });
 
-  if (data.error) {
-    console.log(data.details.base);
-  } else {
-    console.log(data);
-  }
+  console.log(data);
 };
 
 const deleteOrganization = async () => {
@@ -55,19 +39,19 @@ const deleteOrganization = async () => {
 };
 
 switch (process.argv[2]) {
-  case '-l':
+  case "-l":
     listOrganizations();
     break;
-  case '-s':
+  case "-s":
     showOrganization();
     break;
-  case '-u':
+  case "-u":
     updateOrganization();
     break;
-  case '-c':
+  case "-c":
     createOrganization();
     break;
-  case '-d':
+  case "-d":
     deleteOrganization();
     break;
   default:
